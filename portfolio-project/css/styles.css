@@ -1,0 +1,278 @@
+/* =========================
+   Base + Reset
+   ========================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --bg: #ffffff;
+  --text: #1f2937;
+  --muted: #6b7280;
+
+  /* Pink + Blue theme */
+  --pink: #ff4da6;
+  --pink-soft: #ffe2f0;
+  --blue: #2563eb;
+  --blue-soft: #e6f0ff;
+
+  --card: #ffffff;
+  --border: #e5e7eb;
+
+  --shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+  --radius: 16px;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  line-height: 1.6;
+  background:
+    radial-gradient(900px 450px at 10% 0%, var(--blue-soft), transparent 60%),
+    radial-gradient(900px 450px at 90% 0%, var(--pink-soft), transparent 60%),
+    var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+}
+
+/* =========================
+   Layout
+   ========================= */
+header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--border);
+}
+
+main {
+  padding: 1.25rem;
+}
+
+footer {
+  margin-top: 2rem;
+  padding: 1.25rem;
+  border-top: 1px solid var(--border);
+  text-align: center;
+  color: var(--muted);
+  background: rgba(255, 255, 255, 0.7);
+}
+
+/* Constrain page width on larger screens */
+main > section {
+  max-width: 980px;
+  margin: 0 auto;
+}
+
+/* =========================
+   Navigation
+   ========================= */
+nav {
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 0.9rem 1.25rem;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+/* Links */
+nav a {
+  display: inline-block;
+  padding: 0.55rem 0.85rem;
+  border-radius: 999px;
+  text-decoration: none;
+  font-weight: 700;
+  color: var(--text);
+  border: 1px solid transparent;
+  transition: transform 0.15s ease, background 0.15s ease, border-color 0.15s ease;
+}
+
+nav a:hover,
+nav a:focus-visible {
+  background: linear-gradient(90deg, var(--blue-soft), var(--pink-soft));
+  border-color: var(--border);
+  transform: translateY(-1px);
+  outline: none;
+}
+
+/* If you used aria-current="page" on active link */
+nav a[aria-current="page"] {
+  background: linear-gradient(90deg, var(--blue), var(--pink));
+  color: #fff;
+}
+
+/* =========================
+   Typography
+   ========================= */
+h1 {
+  font-size: 2rem;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  margin-bottom: 0.5rem;
+}
+
+h2 {
+  font-size: 1.15rem;
+  color: var(--muted);
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+p {
+  margin: 0.6rem 0;
+  color: var(--text);
+}
+
+a {
+  color: var(--blue);
+}
+
+a:hover,
+a:focus-visible {
+  color: var(--pink);
+  outline: none;
+}
+
+/* =========================
+   Cards (Articles, Blocks)
+   ========================= */
+article {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1rem;
+  margin-top: 1rem;
+  box-shadow: var(--shadow);
+}
+
+article h2 {
+  margin-bottom: 0.6rem;
+  color: var(--text);
+  font-size: 1.2rem;
+}
+
+/* Nice divider line under page intro section */
+section > h1 + h2 {
+  position: relative;
+  padding-bottom: 0.75rem;
+}
+
+section > h1 + h2::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 180px;
+  height: 4px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--blue), var(--pink));
+}
+
+/* =========================
+   Images
+   ========================= */
+img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 14px;
+  border: 1px solid var(--border);
+}
+
+/* =========================
+   Forms (Contact)
+   ========================= */
+form {
+  margin-top: 1rem;
+}
+
+label {
+  display: inline-block;
+  font-weight: 700;
+  margin-top: 0.75rem;
+}
+
+input,
+textarea {
+  width: 100%;
+  margin-top: 0.35rem;
+  padding: 0.75rem 0.85rem;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.9);
+  color: var(--text);
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+textarea {
+  min-height: 140px;
+  resize: vertical;
+}
+
+input:focus,
+textarea:focus {
+  outline: none;
+  border-color: rgba(37, 99, 235, 0.6);
+  box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.15);
+}
+
+button {
+  width: 100%;
+  margin-top: 1rem;
+  padding: 0.85rem 1rem;
+  border: none;
+  border-radius: 14px;
+  font-weight: 800;
+  cursor: pointer;
+  color: #fff;
+  background: linear-gradient(90deg, var(--blue), var(--pink));
+  box-shadow: var(--shadow);
+  transition: transform 0.15s ease, filter 0.15s ease;
+}
+
+button:hover,
+button:focus-visible {
+  transform: translateY(-1px);
+  filter: brightness(1.02);
+  outline: none;
+}
+
+/* =========================
+   Accessibility helpers
+   ========================= */
+:focus-visible {
+  outline: 3px solid rgba(255, 77, 166, 0.45);
+  outline-offset: 3px;
+}
+
+/* =========================
+   Responsive (Tablet/Desktop)
+   ========================= */
+@media (min-width: 768px) {
+  main {
+    padding: 2rem;
+  }
+
+  h1 {
+    font-size: 2.4rem;
+  }
+
+  /* Make form look nicer on bigger screens */
+  form button {
+    width: auto;
+    min-width: 180px;
+  }
+}
