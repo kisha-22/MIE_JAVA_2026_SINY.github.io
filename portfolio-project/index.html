@@ -9,9 +9,9 @@
 <body>
 
 <header>
-    <nav>
+    <nav aria-label="Main navigation">
         <ul>
-            <li><a href="index.html">Home</a></li>
+            <li><a href="index.html" aria-current="page">Home</a></li>
             <li><a href="cv.html">CV</a></li>
             <li><a href="portfolio.html">Portfolio</a></li>
             <li><a href="contact.html">Contact</a></li>
@@ -20,14 +20,45 @@
 </header>
 
 <main>
-    <section>
-        <h1>Yakisha Singh</h1>
-        <h2>Java Developer | Software Engineering Honours Student</h2>
-        <p>
-            I am a passionate developer currently enrolled in the Mecer Java Program,
-            focused on building secure, scalable and user-centered software solutions.
+
+    <section class="hero">
+
+        <header>
+            <p class="badge">Open to Internships • Java • Web • Mobile</p>
+            <h1>Yakisha Singh</h1>
+            <h2>Java Developer | Software Engineering Honours Student</h2>
+        </header>
+
+        <figure>
+            <img src="images/profile.jpg" alt="Professional headshot of Yakisha Singh">
+            <figcaption>Passionate about building secure and user-focused applications.</figcaption>
+        </figure>
+
+        <p class="lead">
+            I design and develop full-stack web applications and mobile platforms
+            with a strong focus on clean code, structured architecture,
+            and user-centered design.
         </p>
+
+        <nav class="hero-actions" aria-label="Primary actions">
+            <a class="btn primary" href="portfolio.html">View My Work</a>
+            <a class="btn ghost" href="contact.html">Contact Me</a>
+        </nav>
+
+        <figure class="floating-bubble bubble-qos">
+    <img src="images/Queens_of_Streetwear.jpg"
+         alt="Queens of Streetwear homepage screenshot">
+    <figcaption class="sr-only">Queens of Streetwear</figcaption>
+</figure>
+
+<figure class="floating-bubble bubble-clarity">
+    <img src="images/clarity_desk.jpg"
+         alt="Clarity Desk homepage screenshot">
+    <figcaption class="sr-only">Clarity Desk</figcaption>
+</figure>
+
     </section>
+
 </main>
 
 <footer>
