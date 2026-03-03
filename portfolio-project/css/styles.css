@@ -402,26 +402,180 @@ button:focus-visible {
     z-index: 1;
 }
 
-.floating-bubble img {
+
+/* =========================
+   Animated background bubbles (all pages)
+   ========================= */
+body {
+  position: relative;
+  overflow-x: hidden; /* prevents horizontal scroll */
+}
+
+/* Two big floating gradient bubbles */
+body::before,
+body::after {
+  content: "";
+  position: fixed;
+  width: 340px;
+  height: 340px;
+  border-radius: 50%;
+  z-index: -1;
+  filter: blur(10px);
+  opacity: 0.35;
+  pointer-events: none;
+  background: radial-gradient(circle at 30% 30%, #2563eb, transparent 60%),
+              radial-gradient(circle at 70% 70%, #ff4da6, transparent 60%);
+  animation: bgFloat 14s ease-in-out infinite;
+}
+
+body::before {
+  top: -120px;
+  left: -120px;
+}
+
+body::after {
+  bottom: -140px;
+  right: -140px;
+  animation-delay: 2.5s;
+}
+
+/* Optional: a few smaller bubbles using box-shadow “clones” */
+main::before {
+  content: "";
+  position: fixed;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  z-index: -1;
+  pointer-events: none;
+  opacity: 0.25;
+  filter: blur(6px);
+  background: radial-gradient(circle, #ff4da6 0%, transparent 60%);
+  top: 20%;
+  left: 70%;
+  animation: bgFloatSmall 10s ease-in-out infinite;
+  box-shadow:
+    -420px 220px 0 0 rgba(37, 99, 235, 0.18),
+    -650px -80px 0 0 rgba(255, 77, 166, 0.18),
+    220px 320px 0 0 rgba(37, 99, 235, 0.16);
+}
+
+/* Movement */
+@keyframes bgFloat {
+  0%, 100% { transform: translate(0, 0); }
+  50%      { transform: translate(35px, 25px); }
+}
+
+@keyframes bgFloatSmall {
+  0%, 100% { transform: translate(0, 0); }
+  50%      { transform: translate(-20px, 30px); }
+}
+
+/* Respect users who prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  body::before,
+  body::after,
+  main::before {
+    animation: none;
+  }
+}
+
+/* About + Skills Section */
+section {
+    max-width: 900px;
+    margin: 3rem auto;
+    padding: 0 1.5rem;
+}
+
+section h2 {
+    margin-bottom: 1rem;
+    font-size: 1.8rem;
+}
+
+section p {
+    margin-bottom: 1rem;
+    line-height: 1.6;
+    color: #555;
+}
+
+/* Skills */
+.skills-list {
+    list-style: none;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 0.8rem;
+    margin-top: 1rem;
+}
+
+.skills-list li {
+    background: linear-gradient(135deg, #2563eb20, #ff4da620);
+    padding: 0.8rem;
+    border-radius: 12px;
+    font-weight: 600;
+    text-align: center;
+    transition: transform 0.2s ease;
+}
+
+.skills-list li:hover {
+    transform: translateY(-4px);
+}
+
+/* Center About + Skills */
+section {
+    max-width: 800px;
+    margin: 2rem auto;
+    text-align: center;
+}
+
+/* Remove too much space from hero */
+.hero {
+    margin-bottom: 1.5rem;
+}
+
+/* Buttons under skills */
+.skills-buttons {
+    margin-top: 2rem;
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+}
+
+/* Button styling */
+.btn-primary,
+.btn-secondary {
+    padding: 0.8rem 1.5rem;
+    border-radius: 999px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: transform 0.2s ease;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, #2563eb, #ff4da6);
+    color: white;
+}
+
+.btn-secondary {
+    border: 2px solid #2563eb;
+    color: #2563eb;
+}
+
+.btn-primary:hover,
+.btn-secondary:hover {
+    transform: translateY(-3px);
+}
+
+.hero-actions {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+
     width: 100%;
-    height: 100%;
-    border-radius: 50%;
-    object-fit: cover;
-    display: block;
+    margin: 2rem 0;
 }
 
-/* Queens of Streetwear - bigger */
-.bubble-qos {
-    width: 140px;
-    height: 140px;
-    top: 60px;
-    right: 180px;
-}
-
-/* Clarity Desk - smaller */
-.bubble-clarity {
-    width: 110px;
-    height: 110px;
-    top: 80px;
-    right: 50px;
+.hero-actions a {
+    display: inline-block;
 }
