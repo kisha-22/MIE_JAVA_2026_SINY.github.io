@@ -1,6 +1,4 @@
-/* =========================
-   Base + Reset
-   ========================= */
+
 * {
   margin: 0;
   padding: 0;
@@ -12,7 +10,7 @@
   --text: #1f2937;
   --muted: #6b7280;
 
-  /* Pink + Blue theme */
+  /* pink and blue theme */
   --pink: #ff4da6;
   --pink-soft: #ffe2f0;
   --blue: #2563eb;
@@ -40,9 +38,7 @@ body {
   min-height: 100vh;
 }
 
-/* =========================
-   Layout
-   ========================= */
+/* Layout*/
 header {
   position: sticky;
   top: 0;
@@ -71,9 +67,7 @@ main > section {
   margin: 0 auto;
 }
 
-/* =========================
-   Navigation
-   ========================= */
+/* Navigation*/
 nav {
   max-width: 980px;
   margin: 0 auto;
@@ -115,9 +109,7 @@ nav a[aria-current="page"] {
   color: #fff;
 }
 
-/* =========================
-   Typography
-   ========================= */
+/*Typography */
 h1 {
   font-size: 2rem;
   line-height: 1.15;
@@ -147,9 +139,7 @@ a:focus-visible {
   outline: none;
 }
 
-/* =========================
-   Cards (Articles, Blocks)
-   ========================= */
+/* Cards (Articles, Blocks)*/
 article {
   background: var(--card);
   border: 1px solid var(--border);
@@ -165,7 +155,7 @@ article h2 {
   font-size: 1.2rem;
 }
 
-/* Nice divider line under page intro section */
+/* divider line under page intro section */
 section > h1 + h2 {
   position: relative;
   padding-bottom: 0.75rem;
@@ -182,9 +172,7 @@ section > h1 + h2::after {
   background: linear-gradient(90deg, var(--blue), var(--pink));
 }
 
-/* =========================
-   Images
-   ========================= */
+/* Images */
 img {
   max-width: 100%;
   height: auto;
@@ -192,9 +180,7 @@ img {
   border: 1px solid var(--border);
 }
 
-/* =========================
-   Forms (Contact)
-   ========================= */
+/*Forms (Contact) */
 form {
   margin-top: 1rem;
 }
@@ -250,17 +236,13 @@ button:focus-visible {
   outline: none;
 }
 
-/* =========================
-   Accessibility helpers
-   ========================= */
+/*Accessibility helpers*/
 :focus-visible {
   outline: 3px solid rgba(255, 77, 166, 0.45);
   outline-offset: 3px;
 }
 
-/* =========================
-   Responsive (Tablet/Desktop)
-   ========================= */
+/* Responsive (Tablet/Desktop) */
 @media (min-width: 768px) {
   main {
     padding: 2rem;
@@ -270,7 +252,7 @@ button:focus-visible {
     font-size: 2.4rem;
   }
 
-  /* Make form look nicer on bigger screens */
+  /* form on bigger screens */
   form button {
     width: auto;
     min-width: 180px;
@@ -279,9 +261,9 @@ button:focus-visible {
 
 
 
-/* -------------------------------- */
+
 /* Home Page Hero Styling */
-/* -------------------------------- */
+
 
 .hero {
     text-align: center;
@@ -343,13 +325,13 @@ button:focus-visible {
 
 .cv-viewer {
     width: 100%;
-    height: 80vh;         /* shows multiple pages nicely */
+    height: 80vh;         /* shows multiple pages  */
     border: none;
     border-radius: 14px;
     background: #fff;
 }
 
-/* reuse the same glow animation if you already have it */
+
 @keyframes glowMove {
     0% { background-position: 0% 50%; }
     50% { background-position: 100% 50%; }
@@ -403,15 +385,13 @@ button:focus-visible {
 }
 
 
-/* =========================
-   Animated background bubbles (all pages)
-   ========================= */
+/*background bubbles (all pages)*/
 body {
   position: relative;
-  overflow-x: hidden; /* prevents horizontal scroll */
+  overflow-x: hidden; 
 }
 
-/* Two big floating gradient bubbles */
+/* Two floating gradient bubbles */
 body::before,
 body::after {
   content: "";
@@ -439,7 +419,7 @@ body::after {
   animation-delay: 2.5s;
 }
 
-/* Optional: a few smaller bubbles using box-shadow “clones” */
+/*  smaller bubbles  */
 main::before {
   content: "";
   position: fixed;
@@ -471,7 +451,7 @@ main::before {
   50%      { transform: translate(-20px, 30px); }
 }
 
-/* Respect users who prefer reduced motion */
+
 @media (prefers-reduced-motion: reduce) {
   body::before,
   body::after,
@@ -528,7 +508,7 @@ section {
     text-align: center;
 }
 
-/* Remove too much space from hero */
+
 .hero {
     margin-bottom: 1.5rem;
 }
